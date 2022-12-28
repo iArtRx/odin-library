@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 5vh
+}
+
+main {
+    height: 89vh;
+}
+
+footer {
+    height: 1vh;
+}
+
+
+

@@ -8,7 +8,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <header>Library</header>
+    <main>
+        <section class="display-books">
+        </section>
+
+        <button id="add-book">Add Book</button>
+
+        <form id="add-form" style="display: none">
+            <h3>Enter Book Information</h3>
+            <input type="text" id="title" placeholder="Title">
+            <input type="text" id="author" placeholder="Author">
+            <input type="text" inputmode="numeric" id="pages" placeholder="Number of Pages">
+            <input type="checkbox" id="read">
+            <button type="submit">Add</button>
+        </form>
+    </main>
+
+    <footer>Art Rithipuntharux (2022)</footer>
     <script src="script.js"></script>
 </body>
 </html>
