@@ -15,5 +15,14 @@ footer {
     height: 1vh;
 }
 
+.display-books {
+    background-color: pink;
+}
+
+.book {
+    height: 300px;
+    width: 300px;
+    background-color: grey;
+}
 
 

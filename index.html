@@ -10,8 +10,8 @@
 <body>
     <header>Library</header>
     <main>
-        <section class="display-books">
-        </section>
+        <div class="display-books">
+        </div>
 
         <button id="add-book">Add Book</button>
 
@@ -19,8 +19,8 @@
             <h3>Enter Book Information</h3>
             <input type="text" id="title" placeholder="Title" required>
             <input type="text" id="author" placeholder="Author" required>
-            <input type="text" inputmode="numeric" id="year" placeholder="Publication Year" required>
-            <input type="text" inputmode="numeric" id="pages" placeholder="Number of Pages">
+            <input type="number" id="year" placeholder="Publication Year" required>
+            <input type="number" id="pages" placeholder="Number of Pages">
             <input type="checkbox" id="read">
             <button type="submit">Add</button>
         </form>
