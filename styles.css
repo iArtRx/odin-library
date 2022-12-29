@@ -1,4 +1,5 @@
 body {
+    background-color: rgb(88, 88, 88);
     display: flex;
     flex-direction: column;
 }
@@ -8,7 +9,12 @@ header {
 }
 
 main {
+    
+}
+
+.container {
     height: 89vh;
+    
 }
 
 footer {
@@ -16,13 +22,23 @@ footer {
 }
 
 .display-books {
-    background-color: pink;
+    background-color: rgb(198, 198, 198);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    margin: 1rem;
+    padding: 2rem;
+    height: 90%;
+    max-width: max-content;
+    overflow: auto;
+
+
 }
 
 .book {
-    height: 300px;
-    width: 300px;
-    background-color: grey;
+    height: 250px;
+    width: 250px;
+    background-color: rgb(126, 188, 166);
 }
 
 

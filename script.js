@@ -20,7 +20,9 @@ addBook.addEventListener("click", () => {
     bookDisplay.style.display = "none";
 })
 
-bookForm.addEventListener("submit", () => {
+bookForm.addEventListener("submit", (e) => {
+
+    e.preventDefault();
     
     let title = document.getElementById("title").value;
     let author = document.getElementById("author").value;
@@ -39,9 +41,16 @@ bookForm.addEventListener("submit", () => {
 
     console.log(myLibrary);
 
+    updateLibrary();
+
+    bookForm.style.display = "none";
+    bookDisplay.style.display = "block";
+
 })
 
 createBookCard = (book) => {
+
+
     let bookCard = document.createElement("div");
     // Add book class to each book object
     bookCard.classList.add("book");
@@ -75,7 +84,19 @@ createBookCard = (book) => {
 
 
 // Iterate over myLibrary array to append each card to display
- 
+
+updateLibrary = () => {
+    bookDisplay.innerHTML = "";
+
+    // Sort myLibrary alphabetically by title
+    myLibrary.sort((a, b) => a.title.toUpperCase() < b.title.toUpperCase() ? -1 : 1);
+
+    for (book of myLibrary) {
+    
+        let bookCard = createBookCard(book);
+        bookDisplay.appendChild(bookCard);
+    }
+}
 
 let book1 = new Book('The Great Gatsby', 'F. Scott Fitzgerald', "1925", "180", true);
 let book2 = new Book('To Kill a Mockingbird', 'Harper Lee', "1960", "281", false);
@@ -85,9 +106,4 @@ myLibrary.push(book1);
 myLibrary.push(book2);
 myLibrary.push(book3);
 
-for (book of myLibrary) {
-    
-    let bookCard = createBookCard(book);
-    bookDisplay.appendChild(bookCard);
-}
-
+updateLibrary();

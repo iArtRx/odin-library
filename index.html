@@ -8,25 +8,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>Library</header>
+    
     <main>
-        <div class="display-books">
+
+        <header>Library</header>
+        <div class="container">
+            <div class="display-books">
+            </div>
+    
+            <button id="add-book">Add Book</button>
+    
+            <form id="book-form" style="display: none">
+                <h3>Enter Book Information</h3>
+                <input type="text" id="title" placeholder="Title" required>
+                <input type="text" id="author" placeholder="Author" required>
+                <input type="number" id="year" placeholder="Publication Year" required>
+                <input type="number" id="pages" placeholder="Number of Pages">
+                <input type="checkbox" id="read">
+                <button type="submit">Add</button>
+            </form>
         </div>
-
-        <button id="add-book">Add Book</button>
-
-        <form id="book-form" style="display: none">
-            <h3>Enter Book Information</h3>
-            <input type="text" id="title" placeholder="Title" required>
-            <input type="text" id="author" placeholder="Author" required>
-            <input type="number" id="year" placeholder="Publication Year" required>
-            <input type="number" id="pages" placeholder="Number of Pages">
-            <input type="checkbox" id="read">
-            <button type="submit">Add</button>
-        </form>
+        <footer>Art Rithipuntharux (2022)</footer>
     </main>
 
-    <footer>Art Rithipuntharux (2022)</footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
