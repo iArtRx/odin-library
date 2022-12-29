@@ -1,43 +1,138 @@
 body {
-    background-color: rgb(88, 88, 88);
+    background-color: rgb(220, 220, 220);
     display: flex;
     flex-direction: column;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 header {
-    height: 5vh
+    color: rgb(102, 102, 102);
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+main {
+    height: 100%;
 }
 
 .container {
-    height: 89vh;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     
 }
 
 footer {
-    height: 1vh;
+    bottom: 0;
+    margin: 1rem;
+    text-align: right;
 }
 
+button {
+    cursor: pointer;
+}
+
+.add-book {
+    background-color: rgb(91, 91, 91);
+    color: white;
+    margin: auto;
+    margin-bottom: 1rem;
+    width: 100px;
+    height: 40px;
+    border-radius: 1rem;
+    box-shadow: none;
+    border: none;
+}
+
+/* Styling for display and cards */
 .display-books {
-    background-color: rgb(198, 198, 198);
+    background-color: rgb(181, 181, 181);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-template-rows: auto;
     grid-auto-flow: row dense;
     justify-items: center;
     gap: 1rem;
-    margin: 1rem;
+    margin: 0;
     padding: 2rem;
     height: 90%;
     min-width: max-content;
-    overflow: auto; 
+    overflow: auto;
+    border-radius: 1rem; 
 
 
 }
 
 .book {
-    height: 250px;
-    width: 250px;
-    background-color: rgb(126, 188, 166);
+    height: 200px;
+    width: 300px;
+    background-color: rgb(139, 139, 139);
+    color: white;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.book h3 {
+    color: white;
+    margin: 0;
+    text-align: center;
+    padding: 0.3rem;
+}
+
+.book p {
+    margin: 0;
+    padding: 0.3rem
+}
+
+.book button {
+    width: 70%;
+    border: none;
+    margin: 0.2rem;
+    border-radius: 1rem;
+}
+
+/* Styling for Form */
+#book-form {
+    background-color: rgb(139, 139, 139);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+    height: 30rem;
+    gap: 2rem;
+    margin: 4rem auto auto;
+    border-radius: 1rem;
+    text-align: center;
+    color: white;
+    
+}
+
+#title, #author, #year, #pages {
+    width: 15rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-style: none;
+    font-size: 1rem;
+}
+
+.read-checkbox {
+    margin: 0;
+}
+
+#submit-book {
+    margin: 0;
+}
+
+
+
+
+
+
 
 

@@ -16,8 +16,9 @@ function Book (title, author, year, pages, read) {
 }
 
 addBook.addEventListener("click", () => {
-    bookForm.style.display = "block";
+    bookForm.style.display = "flex";
     bookDisplay.style.display = "none";
+    addBook.style.display = "none";
 })
 
 bookForm.addEventListener("submit", (e) => {
@@ -38,6 +39,7 @@ bookForm.addEventListener("submit", (e) => {
 
     bookForm.style.display = "none";
     bookDisplay.style.display = "grid";
+    addBook.style.display = "block";
 
 })
 
@@ -57,24 +59,24 @@ createBookCard = (book) => {
     bookCard.appendChild(author);
 
     let year = document.createElement("p");
-    author.textContent = book.year;
+    year.textContent = `Published in ${book.year}`;
     bookCard.appendChild(year)
 
     let pages = document.createElement("p");
-    pages.textContent = book.pages;
+    pages.textContent = `${book.pages} pages`;
     bookCard.appendChild(pages);
 
     // Button based on boolean value which can be toggled
     let readButton = document.createElement("button");
     let isRead = book.read;    
     readButton.textContent = isRead ? "read" : "unread";
-    readButton.style.backgroundColor = isRead ? "green" : "red";
+    readButton.style.backgroundColor = isRead ? "#d0fcad" : "#fcc5ad";
     bookCard.appendChild(readButton);
 
     readButton.addEventListener("click", () => {
         isRead = !isRead;
         readButton.textContent = isRead ? "read" : "unread";
-        readButton.style.backgroundColor = isRead ? "green" : "red";
+        readButton.style.backgroundColor = isRead ? "#d0fcad" : "#fcc5ad";
     });
 
     // Button to remove book object from the array
