@@ -20,7 +20,10 @@ footer {
 .display-books {
     background-color: rgb(198, 198, 198);
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
+    grid-auto-flow: row dense;
+    justify-items: center;
     gap: 1rem;
     margin: 1rem;
     padding: 2rem;

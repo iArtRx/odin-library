@@ -47,6 +47,7 @@ createBookCard = (book) => {
     // Add book class to each book object
     bookCard.classList.add("book");
 
+    // Append object properties to div
     let title = document.createElement("h3");
     title.textContent = book.title;
     bookCard.appendChild(title);
@@ -63,13 +64,28 @@ createBookCard = (book) => {
     pages.textContent = book.pages;
     bookCard.appendChild(pages);
 
-    let read = document.createElement("button");
-    read.textContent = "read";
-    bookCard.appendChild(read);
+    // Button based on boolean value which can be toggled
+    let readButton = document.createElement("button");
+    let isRead = book.read;    
+    readButton.textContent = isRead ? "read" : "unread";
+    readButton.style.backgroundColor = isRead ? "green" : "red";
+    bookCard.appendChild(readButton);
 
+    readButton.addEventListener("click", () => {
+        isRead = !isRead;
+        readButton.textContent = isRead ? "read" : "unread";
+        readButton.style.backgroundColor = isRead ? "green" : "red";
+    });
+
+    // Button to remove book object from the array
     let deleteBook = document.createElement("button");
     deleteBook.textContent = "Delete Book";
     bookCard.appendChild(deleteBook);
+
+    deleteBook.addEventListener("click", () => {
+        myLibrary.pop(book);
+        updateLibrary();
+    });
 
     return bookCard;
 }
