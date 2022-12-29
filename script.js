@@ -30,26 +30,18 @@ bookForm.addEventListener("submit", (e) => {
     let pages = document.getElementById("pages").value;
     let read = document.getElementById("read").checked;
 
-    console.log(title, author, year, pages, read);
-
     let book = new Book(title, author, year, pages, read);
 
-    console.log(book);
-    console.log(myLibrary);
-
     myLibrary.push(book);
-
-    console.log(myLibrary);
 
     updateLibrary();
 
     bookForm.style.display = "none";
-    bookDisplay.style.display = "block";
+    bookDisplay.style.display = "grid";
 
 })
 
 createBookCard = (book) => {
-
 
     let bookCard = document.createElement("div");
     // Add book class to each book object
@@ -102,8 +94,7 @@ let book1 = new Book('The Great Gatsby', 'F. Scott Fitzgerald', "1925", "180", t
 let book2 = new Book('To Kill a Mockingbird', 'Harper Lee', "1960", "281", false);
 let book3 = new Book('Pride and Prejudice', 'Jane Austen', "1813", "278", true);
 
-myLibrary.push(book1);
-myLibrary.push(book2);
-myLibrary.push(book3);
+myLibrary.push(book1, book2, book3);
+
 
 updateLibrary();
