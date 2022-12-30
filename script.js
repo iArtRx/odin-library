@@ -1,4 +1,5 @@
 // DOM Selectors
+const main = document.querySelector("main");
 const bookDisplay = document.querySelector(".display-books");
 const addBook = document.getElementById("add-book");
 const bookForm = document.getElementById("book-form");
@@ -17,7 +18,8 @@ function Book (title, author, year, pages, read) {
 
 addBook.addEventListener("click", () => {
     bookForm.style.display = "flex";
-    bookDisplay.style.display = "none";
+    bookForm.style.zIndex = 2;
+    bookDisplay.style.opacity = "0.5";
     addBook.style.display = "none";
 })
 
@@ -38,10 +40,19 @@ bookForm.addEventListener("submit", (e) => {
     updateLibrary();
 
     bookForm.style.display = "none";
-    bookDisplay.style.display = "grid";
     addBook.style.display = "block";
+    bookDisplay.style.opacity = "1";
 
 })
+
+bookForm.addEventListener("click", (e) => {
+    if(!bookForm.contains(e.target)) {
+        bookForm.style.display = "none";
+        bookForm.style.zIndex = "0";
+        bookDisplay.style.opacity = "1";
+    }
+})
+
 
 createBookCard = (book) => {
 
@@ -69,13 +80,13 @@ createBookCard = (book) => {
     // Button based on boolean value which can be toggled
     let readButton = document.createElement("button");
     let isRead = book.read;    
-    readButton.textContent = isRead ? "read" : "unread";
+    readButton.textContent = isRead ? "Read" : "Unread";
     readButton.style.backgroundColor = isRead ? "#d0fcad" : "#fcc5ad";
     bookCard.appendChild(readButton);
 
     readButton.addEventListener("click", () => {
         isRead = !isRead;
-        readButton.textContent = isRead ? "read" : "unread";
+        readButton.textContent = isRead ? "Read" : "Unread";
         readButton.style.backgroundColor = isRead ? "#d0fcad" : "#fcc5ad";
     });
 
@@ -85,7 +96,8 @@ createBookCard = (book) => {
     bookCard.appendChild(deleteBook);
 
     deleteBook.addEventListener("click", () => {
-        myLibrary.pop(book);
+        let bookIndex = myLibrary.indexOf(book);
+        myLibrary.splice(bookIndex, 1)
         updateLibrary();
     });
 
@@ -113,6 +125,5 @@ let book2 = new Book('To Kill a Mockingbird', 'Harper Lee', "1960", "281", false
 let book3 = new Book('Pride and Prejudice', 'Jane Austen', "1813", "278", true);
 
 myLibrary.push(book1, book2, book3);
-
 
 updateLibrary();
