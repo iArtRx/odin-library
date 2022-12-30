@@ -102,12 +102,13 @@ button {
 /* Styling for Form */
 #book-form {
     background-color: rgb(139, 139, 139);
+    z-index: 10;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30rem;
+    width: 25rem;
     height: 30rem;
-    gap: 2rem;
+    gap: 1.2rem;
     margin: 4rem auto auto;
     border-radius: 1rem;
     text-align: center;
@@ -119,17 +120,27 @@ button {
   
 }
 
-#book-form 
+#close-form {
+    margin: 0.5rem;
+    margin-left: auto;
+    border-radius: 0.5rem;
+    border-style: none;
+    text-align: center;
+    
+}
 
+#book-form h3 {
+    font-size: 1.8rem;
+    margin: 1.8rem;
+}
 #title, #author, #year, #pages {
     width: 15rem;
     height: 2rem;
     border-radius: 0.5rem;
     border-style: none;
     font-size: 1rem;
+    margin: 0.3rem;
 }
-
-
 
 .read-checkbox {
     margin: 0;

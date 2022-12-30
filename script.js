@@ -1,5 +1,5 @@
 // DOM Selectors
-const main = document.querySelector("main");
+const container = document.querySelector(".container");
 const bookDisplay = document.querySelector(".display-books");
 const addBook = document.getElementById("add-book");
 const bookForm = document.getElementById("book-form");
@@ -18,10 +18,10 @@ function Book (title, author, year, pages, read) {
 
 addBook.addEventListener("click", () => {
     bookForm.style.display = "flex";
-    bookForm.style.zIndex = 2;
     bookDisplay.style.opacity = "0.5";
-    addBook.style.display = "none";
-})
+    addBook.style.visibility = "hidden";
+    bookButton.disabled = true;
+});
 
 bookForm.addEventListener("submit", (e) => {
 
@@ -40,18 +40,18 @@ bookForm.addEventListener("submit", (e) => {
     updateLibrary();
 
     bookForm.style.display = "none";
-    addBook.style.display = "block";
     bookDisplay.style.opacity = "1";
+    addBook.style.visibility = "visible";
+});
 
-})
-
-bookForm.addEventListener("click", (e) => {
-    if(!bookForm.contains(e.target)) {
+// Close the form if click outside
+container.addEventListener("click", (e) => {
+    if (!e.target.closest("#book-form") && e.target !== addBook) {
         bookForm.style.display = "none";
-        bookForm.style.zIndex = "0";
         bookDisplay.style.opacity = "1";
+        addBook.style.visibility = "visible";
     }
-})
+});
 
 
 createBookCard = (book) => {
