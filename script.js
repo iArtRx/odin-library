@@ -7,21 +7,23 @@ const bookForm = document.getElementById("book-form");
 // Initialise Array for Books
 let myLibrary = [];
 
-// Constructor for Book objects
-function Book (title, author, year, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.year = year;
-    this.pages = pages;
-    this.read = read;
+// Class and constructor for Book
+class Book {
+    constructor(title, author, year, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 addBook.addEventListener("click", () => {
     bookForm.style.display = "flex";
     bookDisplay.style.opacity = "0.5";
     addBook.style.visibility = "hidden";
-    bookButton.disabled = true;
-});
+
+})
 
 bookForm.addEventListener("submit", (e) => {
 
@@ -42,6 +44,7 @@ bookForm.addEventListener("submit", (e) => {
     bookForm.style.display = "none";
     bookDisplay.style.opacity = "1";
     addBook.style.visibility = "visible";
+    
 });
 
 // Close the form if click outside
@@ -52,7 +55,6 @@ container.addEventListener("click", (e) => {
         addBook.style.visibility = "visible";
     }
 });
-
 
 createBookCard = (book) => {
 
@@ -103,7 +105,6 @@ createBookCard = (book) => {
 
     return bookCard;
 }
-
 
 // Iterate over myLibrary array to append each card to display
 
